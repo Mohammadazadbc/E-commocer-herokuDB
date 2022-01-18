@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('product', [ProductController::class,'index']);
 Route::post('product', [ProductController::class,'addProduct']);
+Route::get('rate',[RatingController::class,'index']);
+Route::post('rate',[RatingController::class,'addRating']);

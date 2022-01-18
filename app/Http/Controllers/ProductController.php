@@ -7,8 +7,7 @@ use App\Models\Products;
 class ProductController extends Controller
 {
     function index(){
-        return  Products::all();
-         
+        return  Products::all(); 
     }
   
     function addProduct(Request $req){

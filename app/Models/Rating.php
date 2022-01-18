@@ -10,9 +10,11 @@ class Rating extends Model
     use HasFactory;
      
     protected $table="ratings";
+
     public function product(){
         return $this->belongsTo(Products::class);
     }
+    
 
 
 }
