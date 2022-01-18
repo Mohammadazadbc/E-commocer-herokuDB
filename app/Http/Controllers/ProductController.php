@@ -10,19 +10,20 @@ class ProductController extends Controller
         return  Products::all();
          
     }
+  
     function addProduct(Request $req){
-        $product = new Products();
-       $product->title = $req->titel;
-       $product->price = $req->price;
-       $product->description = $req->description;
-       $product->category = $req->category;
-       $product->image = $req->image;
-       $result = $product->save();
-       if($result){
-           return ["data"=>"has been saved"];
-       }
-       else{
-           return ["data"=>"not saved"];
-       }
+        $pro = new Products();
+        $pro->title = $req->title;
+        $pro->price = $req->price;
+        $pro->description = $req->description;
+        $pro->category = $req->category;
+        $pro->image = $req->image;
+        $resutl = $pro->save();
+        if($resutl){
+            return ["message"=>"has been save"];
+        }
+        else{
+            return ["message"=>"has been faild"];
+        }
     }
 }
