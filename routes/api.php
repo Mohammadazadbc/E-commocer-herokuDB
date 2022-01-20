@@ -33,5 +33,7 @@ Route::post('login',[MemberController::class,'login']);
 
 Route::get('chats', [ChatsController::class,'ShowChats']);
 Route::post('chats', [ChatsController::class,'addChats']);
+Route::patch('chats/{id}', [ChatsController::class,'updateChat']);
+Route::delete('chats/{id}', [ChatsController::class,'deleteChat']);
 
 

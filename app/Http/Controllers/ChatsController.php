@@ -22,4 +22,27 @@ class ChatsController extends Controller
             return ["message"=>"somethings goes wrong"];
         }
     }
+
+    function updateChat(Request $req, $id){
+        $uChat = Conversations::find($id);
+        $uChat->chats = $req->chats;
+        $result = $uChat->save();
+
+        if($result){
+            return ["message" =>"modified"];
+        }
+        else{
+            return ["message" =>"Data not modified"];
+        }
+    }
+    function deleteChat($id){
+        $dchat = Conversations::find($id);
+        $result = $dchat->delete();
+        if($result){
+            return ["message"=>"data has been deleted"];
+        }
+        else{
+            return ["message"=>"data has been not deleted"];
+        }
+    }
 }
