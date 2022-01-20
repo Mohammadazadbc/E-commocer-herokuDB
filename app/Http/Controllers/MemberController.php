@@ -31,5 +31,44 @@ class MemberController extends Controller
         }
         
     }
+
+    function updateMember( Request $req,$id){
+        $umem = Members::find($id);
+        $umem->firstname = $req->firstname;
+        $umem->lastname = $req->lastname;
+        $umem->email = $req->email;
+        $umem->password = $req->password;
+        $umem->brithdate =  $req->brithdate;
+        $umem->Qsecret = $req->Qsecret;
+        $umem->Rsecret = $req->Rsecret;
+        $Uresult = $umem->save();
+        if($Uresult){
+            return ["message"=>"data updated"];
+        }
+        else{
+            return ["message"=>"date has been not updated"];
+        }
+        function deleteMember($id){
+            $dmem = Members::find($id);
+            $dreuslt = $dmem->delete();
+            if($dreuslt){
+                return ['message'=>"data deleted"];
+            }
+            else{
+                return ['message'=>"data has been not deleted"];
+            }
+        }
+    }
+    function login(Request $req){
+        $lmem = Members::where(["email"=>$req->email, 'password'=>$req->password]);
+
+        if(!$lmem){
+            return ['message'=>"email or password inccorect"];
+        }
+        else{
+            ["message"=>"welcome"];
+        }
+
+    }   
     
 }
