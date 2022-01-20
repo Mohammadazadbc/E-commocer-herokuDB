@@ -65,8 +65,8 @@ class MemberController extends Controller
                 'email'=> 'required|email',
                 'password'=>'required|min:8:max:13'
             ]);
-            $user = Members::where('email', $req->email)->first();
-            $user->password = Hash::make($req->password);
+            $user = Members::where(['email'=>$req->email, 'password'=>$req->password])->first();
+            
 
         if(!$user){
             return ['message'=>"email or password inccorect"];
