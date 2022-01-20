@@ -14,11 +14,10 @@ class MemberController extends Controller
         return Members::all();
     }
     function addMember(Request $req){
-
         $req->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'birth_date' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'brithdate' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:13'
 
@@ -69,9 +68,7 @@ class MemberController extends Controller
             $user = Members::where('email', $req->email)->first();
             $user->password = Hash::make($req->password);
 
-        $lmem = Members::where(["email"=>$req->email,'password'=>$req->password])->first();
-
-        if(!$lmem){
+        if(!$user){
             return ['message'=>"email or password inccorect"];
         }
         else{
