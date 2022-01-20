@@ -60,7 +60,7 @@ class MemberController extends Controller
         }
     }
     function login(Request $req){
-        $lmem = Members::where(["email"=>$req->email, 'password'=>$req->password]);
+        $lmem = Members::where(["email"=>$req->email,'password'=>$req->password]);
 
         if(!$lmem){
             return ['message'=>"email or password inccorect"];
