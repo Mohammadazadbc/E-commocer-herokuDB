@@ -54,7 +54,7 @@ class MemberController extends Controller
         $umem->firstname = $req->firstname;
         $umem->lastname = $req->lastname;
         $umem->email = $req->email;
-        $umem->password = $req->password;
+        $umem->password = Hash::make( $req->password);
         $umem->brithdate =  $req->brithdate;
         $umem->Qsecret = $req->Qsecret;
         $umem->Rsecret = $req->Rsecret;
