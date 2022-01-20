@@ -42,6 +42,14 @@ class MemberController extends Controller
     }
 
     function updateMember( Request $req,$id){
+        $req->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'brithdate' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|max:13'
+
+        ]);
         $umem = Members::find($id);
         $umem->firstname = $req->firstname;
         $umem->lastname = $req->lastname;
