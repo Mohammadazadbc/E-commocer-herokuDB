@@ -32,6 +32,6 @@ Route::post('login',[MemberController::class,'login']);
 // conversation routes
 
 Route::get('chats', [ChatsController::class,'ShowChats']);
-Route::post('chats', [ChatsController::class,'addChats']);
+// Route::post('chats', [ChatsController::class,'addChats']);
 
 
