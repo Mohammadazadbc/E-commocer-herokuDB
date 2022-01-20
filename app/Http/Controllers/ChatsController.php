@@ -11,15 +11,15 @@ class ChatsController extends Controller
         return Conversations::all();
     }
 
-    // function addChats(Request $req){
-    //     $chat = new Conversations();
-    //     $chat->chats = $req->chats;
-    //     $result = $chat->save();
-    //     if($result){
-    //         return["message"=>"data has been saved"];
-    //     }
-    //     else{
-    //         return ["message"=>"somethings goes wrong"];
-    //     }
-    // }
+    function addChats(Request $req){
+        $chat = new Conversations();
+        $chat->chats = $req->chats;
+        $result = $chat->save();
+        if($result){
+            return["message"=>"data has been saved"];
+        }
+        else{
+            return ["message"=>"somethings goes wrong"];
+        }
+    }
 }
