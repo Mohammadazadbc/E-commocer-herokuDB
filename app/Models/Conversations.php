@@ -10,6 +10,7 @@ class Conversations extends Model
     use HasFactory;
 
     protected $table="conversations";
+    
     public function member(){
         return $this->belongsToMany(Conversations::class,'conversations_members');
     }
