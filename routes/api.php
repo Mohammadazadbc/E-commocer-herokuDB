@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ChatsController;
 
 
 /*
@@ -25,5 +26,12 @@ Route::get('member', [MemberController::class,'getMemberList']);
 Route::patch('member/{id}', [MemberController::class,'updateMember']);
 Route::delete('member/{id}', [MemberController::class, 'deleteMember']);
 Route::post('login',[MemberController::class,'login']);
+
+
+
+// conversation routes
+
+Route::get('chats', [ChatsController::class,'ShowChats']);
+Route::post('chats', [ChatsController::class,'addChats']);
 
 

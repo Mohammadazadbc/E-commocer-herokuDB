@@ -85,8 +85,6 @@ class MemberController extends Controller
     }
 
     
-
-
     
     function deleteMember($id){
         $dmem = Members::find($id);

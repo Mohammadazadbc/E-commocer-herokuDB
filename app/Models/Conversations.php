@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Members extends Model
+class Conversations extends Model
 {
     use HasFactory;
-    protected $table="members";
 
-    public function conversation(){
+    public function member(){
         return $this->belongsToMany(Conversations::class,'conversations_members');
     }
-    
-
 }
