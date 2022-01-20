@@ -20,6 +20,8 @@ class CreateMembersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->date('brithdate');
+            $table->string('Qsecret');
+            $table->string('Rsecret');
             $table->timestamps();
         });
     }

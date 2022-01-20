@@ -19,6 +19,8 @@ class MemberController extends Controller
         $mem->email = $req->email;
         $mem->password = $req->password;
         $mem->brithdate =  $req->brithdate;
+        $mem->Qsecret = $req->Qsecret;
+        $mem->Rsecret = $req->Rsecret;
         $result = $mem->save();
 
         if($result){
