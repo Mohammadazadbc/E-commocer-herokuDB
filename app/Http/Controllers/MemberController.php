@@ -63,11 +63,10 @@ class MemberController extends Controller
 
             $req->validate([
                 'email'=> 'required|email',
-                'password'=>'required|min:8:max:13'
+                'password'=>'required'
             ]);
             $user = Members::where(['email'=>$req->email, 'password'=>$req->password])->first();
             
-
         if(!$user){
             return ['message'=>"email or password inccorect"];
         }
