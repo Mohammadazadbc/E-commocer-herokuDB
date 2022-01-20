@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Members;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
@@ -13,6 +14,15 @@ class MemberController extends Controller
         return Members::all();
     }
     function addMember(Request $req){
+
+        $req->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'birth_date' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|max:13'
+
+        ]);
         $mem = new Members();
         $mem->firstname = $req->firstname;
         $mem->lastname = $req->lastname;
@@ -51,6 +61,14 @@ class MemberController extends Controller
   
     }
     function login(Request $req){
+
+            $req->validate([
+                'email'=> 'required|email',
+                'password'=>'required|min:8:max:13'
+            ]);
+            $user = Members::where('email', $req->email)->first();
+            $user->password = Hash::make($req->password);
+
         $lmem = Members::where(["email"=>$req->email,'password'=>$req->password])->first();
 
         if(!$lmem){
@@ -60,7 +78,11 @@ class MemberController extends Controller
            return ["message"=>"welcome"];
         }
 
-    }  
+    }
+
+    
+
+
     
     function deleteMember($id){
         $dmem = Members::find($id);
