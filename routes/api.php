@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\RatingController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('member', [ProductController::class,'addMember']);
-Route::get('member', [ProductController::class,'getMemberList']);
+Route::post('member', [MemberController::class,'addMember']);
+Route::get('member', [MemberController::class,'getMemberList']);
 
