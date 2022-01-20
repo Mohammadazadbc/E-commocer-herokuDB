@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
-use App\Models\Members;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('member', [MemberController::class,'addMember']);
 Route::get('member', [MemberController::class,'getMemberList']);
 Route::patch('member/{id}', [MemberController::class,'updateMember']);
-Route::delete('member/{id}', [MemberController::class, 'updateMember']);
+Route::delete('member/{id}', [MemberController::class, 'deleteMember']);
 Route::post('login',[MemberController::class,'login']);
 
 

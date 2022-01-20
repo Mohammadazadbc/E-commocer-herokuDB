@@ -48,16 +48,7 @@ class MemberController extends Controller
         else{
             return ["message"=>"date has been not updated"];
         }
-        function deleteMember($id){
-            $dmem = Members::find($id);
-            $dreuslt = $dmem->delete();
-            if($dreuslt){
-                return ['message'=>"data deleted"];
-            }
-            else{
-                return ['message'=>"data has been not deleted"];
-            }
-        }
+  
     }
     function login(Request $req){
         $lmem = Members::where(["email"=>$req->email,'password'=>$req->password])->first();
@@ -66,9 +57,20 @@ class MemberController extends Controller
             return ['message'=>"email or password inccorect"];
         }
         else{
-            ["message"=>"welcome"];
+           return ["message"=>"welcome"];
         }
 
-    }   
+    }  
+    
+    function deleteMember($id){
+        $dmem = Members::find($id);
+        $dresult = $dmem->delete();
+        if($dresult){
+            return ["message"=>"data has been deleted"];
+        }
+        else{
+            return ["message"=>"data has been not deleted"];
+        }
+    }
     
 }
