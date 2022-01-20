@@ -19,7 +19,7 @@ use App\Http\Controllers\RatingController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('product', [ProductController::class,'index']);
-Route::post('product', [ProductController::class,'addProduct']);
-Route::get('rate',[RatingController::class,'index']);
-Route::post('rate',[RatingController::class,'addRating']);
+
+Route::post('member', [ProductController::class,'addMember']);
+Route::get('member', [ProductController::class,'getMemberList']);
+
