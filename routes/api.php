@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('member', [MemberController::class,'addMember']);
 Route::get('member', [MemberController::class,'getMemberList']);
 Route::get('member/{id}', [MemberController::class,'getMemberById']);
+Route::post('member/img/{id}', [MemberController::class,'addUserImg']); // add profile pic
 Route::patch('member/{id}', [MemberController::class,'updateMember']);
 Route::delete('member/{id}', [MemberController::class, 'deleteMember']);
 Route::post('login',[MemberController::class,'login']);

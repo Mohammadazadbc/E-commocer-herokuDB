@@ -44,6 +44,19 @@ class MemberController extends Controller
         
     }
 
+    function addUserImg(Request $req,$id){
+        $uImg = Members::find($id);
+        $uImg->member_img = $req->member_img;
+        $reulst = $uImg->save();
+        if($reulst){
+           return ["message"=>"img has been added"];
+        }
+       else{
+        return ["message"=>"img has been Not added"];
+       }
+
+    }
+
     function updateMember( Request $req,$id){
         $req->validate([
             'firstname' => 'required',
