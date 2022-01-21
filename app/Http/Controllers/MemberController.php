@@ -29,6 +29,7 @@ class MemberController extends Controller
         $mem->password = Hash::make($req->password);
         $mem->brithdate =  $req->brithdate;
         $mem->Rsecret = $req->Rsecret;
+        $mem->member_img = $req->member_img;
         $result = $mem->save();
 
         if($result){
@@ -56,6 +57,7 @@ class MemberController extends Controller
         $umem->password = Hash::make( $req->password);
         $umem->brithdate =  $req->brithdate;
         $umem->Rsecret = $req->Rsecret;
+        $umem->member_img = $req->member_img;
         $Uresult = $umem->save();
         if($Uresult){
             return ["message"=>"data updated"];

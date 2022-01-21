@@ -21,6 +21,7 @@ class CreateMembersTable extends Migration
             $table->string('password');
             $table->date('brithdate');
             $table->string('Rsecret');
+            $table->string('member_img')->nullable();
             $table->tinyInteger('role_as')->default(0);
             $table->rememberToken();
             $table->timestamps();
