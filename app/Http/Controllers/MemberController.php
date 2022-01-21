@@ -66,9 +66,6 @@ class MemberController extends Controller
   
     }
 
-
-    
-    
     function deleteMember($id){
         $dmem = Members::find($id);
         $dresult = $dmem->delete();
@@ -95,6 +92,19 @@ class MemberController extends Controller
         }
 
 }
-  
+
+    function changePassword(Request $req, $id){
+            $cPass = Members::find($id);
+            $cPass->password = Hash::make($req->password);
+            $result = $cPass->save();
+            if($result){
+                return ["message"=>"Password changed"];
+            }
+            else{
+                return ["message"=>"Password not matche"];
+            }
+    }
+        
+   
     
 }

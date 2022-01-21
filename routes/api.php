@@ -26,6 +26,7 @@ Route::get('member', [MemberController::class,'getMemberList']);
 Route::patch('member/{id}', [MemberController::class,'updateMember']);
 Route::delete('member/{id}', [MemberController::class, 'deleteMember']);
 Route::post('login',[MemberController::class,'login']);
+Route::post('login/changepass/{id}',[MemberController::class,'changePassword']);
 
 
 
