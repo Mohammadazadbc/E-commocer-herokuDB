@@ -28,7 +28,6 @@ class MemberController extends Controller
         $mem->email = $req->email;
         $mem->password = Hash::make($req->password);
         $mem->brithdate =  $req->brithdate;
-        $mem->Qsecret = $req->Qsecret;
         $mem->Rsecret = $req->Rsecret;
         $result = $mem->save();
 
@@ -56,7 +55,6 @@ class MemberController extends Controller
         $umem->email = $req->email;
         $umem->password = Hash::make( $req->password);
         $umem->brithdate =  $req->brithdate;
-        $umem->Qsecret = $req->Qsecret;
         $umem->Rsecret = $req->Rsecret;
         $Uresult = $umem->save();
         if($Uresult){
