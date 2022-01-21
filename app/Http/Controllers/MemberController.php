@@ -13,6 +13,9 @@ class MemberController extends Controller
     function getMemberList(){
         return Members::all();
     }
+    function getMemberById($id){
+        return Members::find($id);
+    }
     function addMember(Request $req){
         $req->validate([
             'firstname' => 'required',
