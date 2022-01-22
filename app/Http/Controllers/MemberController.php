@@ -46,7 +46,7 @@ class MemberController extends Controller
 
     function addUserImg(Request $req,$id){
         $uImg = Members::find($id);
-        $uImg->member_img = $req->member_img;
+        $uImg->member_img = $req->member_img('file')->store();
         $reulst = $uImg->save();
         if($reulst){
            return ["message"=>"img has been added"];
