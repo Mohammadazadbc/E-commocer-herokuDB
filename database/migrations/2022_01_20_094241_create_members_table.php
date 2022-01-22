@@ -21,7 +21,7 @@ class CreateMembersTable extends Migration
             $table->string('password');
             $table->date('brithdate');
             $table->string('Rsecret');
-            $table->string('member_img')->nullable();
+            $table->string('member_img')->default("https://hope.be/wp-content/uploads/2015/05/no-user-image.gif");
             $table->tinyInteger('role_as')->default(0);
             $table->rememberToken();
             $table->timestamps();

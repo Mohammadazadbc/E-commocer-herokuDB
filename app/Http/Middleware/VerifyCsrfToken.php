@@ -18,6 +18,6 @@ class VerifyCsrfToken extends Middleware
         '/login',
         '/login/changepass',
         '/chats',
-        '/member/img'
+        '/member/img{id}'
     ];
 }
