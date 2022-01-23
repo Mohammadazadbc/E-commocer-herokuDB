@@ -15,9 +15,9 @@ class CreateConversationsMembersTable extends Migration
     {
         Schema::create('conversations_members', function (Blueprint $table) {
             $table->integer('member_id')->unsigned();
-            $table->integer('chats_id')->unsigned();
+            $table->integer('conversations_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
-            $table->foreign('chats_id')->references('id')->on('conversations')->onDelete('cascade');
+            $table->foreign('conversations_id')->references('id')->on('conversations')->onDelete('cascade');
         });
     }
 
