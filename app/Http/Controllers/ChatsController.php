@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conversations;
+use App\Models\Members;
 
 class ChatsController extends Controller
 {
     function ShowChats(){
         return Conversations::all();
     }
+    function ShowUserChat(){
+        return Members::all()->conversation;
+    }
+    
 
     function addChats(Request $req){
         $chat = new Conversations();
@@ -22,6 +27,7 @@ class ChatsController extends Controller
             return ["message"=>"somethings goes wrong"];
         }
     }
+
 
     function updateChat(Request $req, $id){
         $uChat = Conversations::find($id);
@@ -45,4 +51,14 @@ class ChatsController extends Controller
             return ["message"=>"data has been not deleted"];
         }
     }
+    function addRelationChat (Request $req, $id){
+        $chat = new Conversations();
+        $chat->chats = $req->chats;
+         $chat->save();
+        $chat->member()->attach($id);
+        return "add succefuly";
+        
+    }
+
+
 }

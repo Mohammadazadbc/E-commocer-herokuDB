@@ -35,8 +35,14 @@ Route::patch('login/changepass/{id}',[MemberController::class,'changePassword'])
 // conversation routes
 
 Route::get('chats', [ChatsController::class,'ShowChats']);
+Route::get('chat', [ChatsController::class,'ShowUserChat']);
 Route::post('chats', [ChatsController::class,'addChats']);
 Route::patch('chats/{id}', [ChatsController::class,'updateChat']);
 Route::delete('chats/{id}', [ChatsController::class,'deleteChat']);
+
+
+// add chat and related to member
+
+Route::post('addchat/{id}', [ChatsController::class,'addRelationChat']);
 
 
