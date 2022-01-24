@@ -86,14 +86,12 @@ class ChatsController extends Controller
     }
 
 
-  public  function addChatByUser(Request $req, $id){
+  public function addChatByUser(Request $req, $id){
         $chat = new Conversations();
         $chat->chats = $req->chats;
         $chat->save();
 
-        $memId = $id;
-        echo($id);
-        $chat->members()->attach($memId);
+        $chat->members()->attach($id);
         return "Recoded has been saved";
     }
 
