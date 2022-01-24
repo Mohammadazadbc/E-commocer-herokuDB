@@ -12,7 +12,7 @@ class Conversations extends Model
     protected $table="conversations";
     
     public function members(){
-        return $this->belongsToMany(Conversations::class,'conversations_members');
+        return $this->belongsToMany(Members::class,'conversations_members');
     }
     
 }

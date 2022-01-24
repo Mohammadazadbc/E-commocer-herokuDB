@@ -14,10 +14,10 @@ class CreateConversationsMembersTable extends Migration
     public function up()
     {
         Schema::create('conversations_members', function (Blueprint $table) {
-            $table->bigInteger('members_id')->unsigned();
             $table->bigInteger('conversations_id')->unsigned();
-            $table->foreign('members_id')->references('id')->on('members')->onDelete('cascade');
+            $table->bigInteger('members_id')->unsigned();
             $table->foreign('conversations_id')->references('id')->on('conversations')->onDelete('cascade');
+            $table->foreign('members_id')->references('id')->on('members')->onDelete('cascade');
         });
     }
 
