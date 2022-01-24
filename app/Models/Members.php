@@ -11,7 +11,7 @@ class Members extends Model
     protected $table="members";
 
     public function conversation(){
-        return $this->belongsToMany(Conversations::class,'conversations_members');
+        return $this->belongsToMany(Members::class,'conversations_members');
     }
     
 
