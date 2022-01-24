@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Conversations;
 use App\Models\Members;
+use Illuminate\Support\Facades\Log;
 
 class ChatsController extends Controller
 {
@@ -56,7 +57,8 @@ class ChatsController extends Controller
         $chat->chats = $req->chats;
         $chat->save();
         $chat->member()->attach($id);
-        $chat->conversation()->attach($req->id);
+        Log::error($id);
+        
         return "add succefuly";
         
     }
