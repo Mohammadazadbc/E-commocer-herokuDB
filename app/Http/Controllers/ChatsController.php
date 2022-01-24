@@ -89,10 +89,18 @@ class ChatsController extends Controller
   public function addChatByUser(Request $req, $id){
         $chat = new Conversations();
         $chat->chats = $req->chats;
-        $chat->save();
+         $chat->save();
 
         $chat->members()->attach($id);
-        return "Recoded has been saved";
+        return ["message"=>"data has been saved"];
+    }
+
+
+
+   public function showUserByChat($id){
+        $mem = Conversations::find($id);
+        $chat = $mem->members;
+        return $chat;
     }
 
 

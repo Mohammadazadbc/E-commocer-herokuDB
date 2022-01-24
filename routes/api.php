@@ -46,5 +46,6 @@ Route::delete('chats/{id}', [ChatsController::class,'deleteChat']);
 Route::post('addchat/{id}', [ChatsController::class,'addMemberChat']);
 Route::post('addmember/{id}', [ChatsController::class,'addChatByUser']);
 Route::get('chats/{id}', [ChatsController::class,'showChatByusr']);
+Route::get('chatmem/{id}',[ChatsController::class,'showUserByChat']);
 
 
