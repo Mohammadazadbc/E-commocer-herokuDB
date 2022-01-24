@@ -55,9 +55,10 @@ class ChatsController extends Controller
     function addRelationChat (Request $req, $id){
         $chat = new Conversations();
         $chat->chats = $req->chats;
-        $chat->save();
+       
         $chat->member()->attach($id);
         Log::error($id);
+        $chat->save();
         
         return "add succefuly";
         
