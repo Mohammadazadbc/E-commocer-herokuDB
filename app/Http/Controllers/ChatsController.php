@@ -75,7 +75,7 @@ class ChatsController extends Controller
 
         $chatId = $id;
         $mem->conversation()->attach($chatId);
-        return "Recoded has been saved";
+        return "Recoded has been saved!";
         
     }
 
