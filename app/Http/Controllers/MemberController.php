@@ -103,10 +103,10 @@ class MemberController extends Controller
         ]);
          $user = Members::where(['email'=>$req->email])->first();
         if(!$user || !Hash::check($req->password, $user->password)){
-            return $user;
+            return ["message"=>"something wornd"];
         }
         else{
-            return ["message"=>"welcome"];
+            return $user;
         }
 
 }
